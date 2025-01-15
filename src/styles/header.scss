@@ -1,0 +1,102 @@
+.top-bar {
+    --tw-bg-opacity: 1;
+    background-color: rgb(118 44 251/var(--tw-bg-opacity));
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 28px;
+
+    &__content {
+        display: inline-block;
+        animation: marquee 500s linear infinite;
+
+        span {
+            display: inline-block;
+            font-weight: 900;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+}
+
+.header {
+    width: 100%;
+    backdrop-filter: blur(13px);
+    position: sticky;
+    top: 0;
+
+    &__container__father {
+        display: flex;
+        width: 95%;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+    }
+
+    &__payments {
+        display: flex;
+        background-color: #1c1c1c;
+        align-items: center;
+        gap: 0.5rem;
+        border-radius: 100px;
+        border: 1px solid #6f42c1;
+        padding: 8px 20px;
+
+        &__span {
+            font-size: 12px;
+        }
+    }
+
+    &__payments:hover {
+        border: 1px solid #865fce;
+        cursor: normal;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        &__list {
+            display: flex;
+            gap: 15px;
+
+            &__item {
+                list-style: none;
+
+                &__link {
+                    font-weight: 100;
+                    color: #fff;
+                    text-decoration: none;
+                }
+
+                &:hover {
+                    color: #6f42c1;
+                }
+            }
+        }
+
+        &__cart {
+            color: #fff;
+            border: none;
+            border-radius: 0.3rem;
+            padding: 10px;
+            --tw-bg-opacity: 1;
+            background-color: rgb(118 44 251/var(--tw-bg-opacity));
+        }
+    }
+}

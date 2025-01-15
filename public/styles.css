@@ -1,0 +1,9 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1e;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+@import './styles/header.scss';
