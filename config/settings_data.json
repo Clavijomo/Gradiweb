@@ -14,13 +14,13 @@
                 "site_name": "MyShopify"
             }
         },
-        "hero-banner": {
+        "heroBanner": {
             "type": "hero-banner",
             "settings": {
                 "button_text": "Shop Now",
                 "button_link": "/collections/all",
                 "marquee_text": "Free Shipping on Orders Over $50",
-                "background_image": "hero_banner_img.avif"
+                "background_image": "/assets/hero_banner_img.avif"
             }
         },
         "footer": {

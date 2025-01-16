@@ -19,12 +19,12 @@ app.set('views', path.resolve(__dirname, 'templates'));
 app.set('view engine', 'liquid');
 
 app.use(express.static('public'));
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use('/assets', express.static('assets'));
 
 const products = require('./data/products.json');
 const collections = require('./data/collections.json');
 const settings = JSON.parse(fs.readFileSync('./config/settings_data.json', 'utf-8'));
-console.log(settings.sections.header.settings.logo_url);
+console.log(settings.sections.heroBanner.settings.background_image);
 
 
 app.get('/', (req, res) => {
