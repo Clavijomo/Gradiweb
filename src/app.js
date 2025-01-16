@@ -1,5 +1,6 @@
 import './styles/header.scss';
 import './styles/hero-banner.scss';
+import './styles/carrousel-products.scss';
 
 const topBarContent = document.querySelector('.top-bar__content');
 const heroBanner = document.querySelector('.hero-banner__marquee');
