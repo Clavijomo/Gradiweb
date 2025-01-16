@@ -5,11 +5,15 @@
 
 <header class="header">
   <div class="header__container__father">
-    <div class="header__logo">
-      <h1>Store | Shuffle</h1>
+    <div class="header__container__father__inline">
+      <button class="header__menu__toggle" aria-label="Toggle navigation" data-state="closed">☰</button>
+
+      <div class="header__logo">
+        <h1>Store | Shuffle</h1>
+      </div>
     </div>
 
-    <div class="header__payments">
+    <div class="header__payments header__payments__desktop">
       <span class="header__payments__span">We Accept</span>
       <img
         src="https://static-00.iconduck.com/assets.00/bitcoin-icon-2048x2048-t8gwld81.png"
@@ -46,7 +50,35 @@
           <a href="/collections" class="header__nav__list__item__link">Collections</a>
         </li>
       </ul>
-      <button class="header__nav__cart">Carrito</button>
+      <div class="header__payments header__payments__mobile">
+        <span class="header__payments__span">We Accept</span>
+        <img
+          src="https://static-00.iconduck.com/assets.00/bitcoin-icon-2048x2048-t8gwld81.png"
+          alt="Bitcoin"
+          width="28"
+          height="28"
+        >
+        <img
+          src="https://static-00.iconduck.com/assets.00/bitcoin-icon-2048x2048-t8gwld81.png"
+          alt="Bitcoin"
+          width="28"
+          height="28"
+        >
+        <img
+          src="https://static-00.iconduck.com/assets.00/bitcoin-icon-2048x2048-t8gwld81.png"
+          alt="Bitcoin"
+          width="28"
+          height="28"
+        >
+        <img
+          src="https://static-00.iconduck.com/assets.00/bitcoin-icon-2048x2048-t8gwld81.png"
+          alt="Bitcoin"
+          width="28"
+          height="28"
+        >
+      </div>
+      <button class="header__nav__cart header__nav__cart__desktop">Carrito</button>
     </nav>
+    <button class="header__nav__cart header__nav__cart__mobile">Carrito</button>
   </div>
 </header>
