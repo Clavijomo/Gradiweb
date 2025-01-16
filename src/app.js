@@ -57,6 +57,7 @@ toggleButton.addEventListener('click', () => {
     header.classList.toggle('menu-open');
 
     toggleButton.textContent = isOpen ? 'X' : '☰';
+    toggleButton.style.color = isOpen ? 'white' : '#6f42c1'
     toggleButton.setAttribute(
         'aria-label',
         isOpen ? 'Close navigation menu' : 'Open navigation menu'

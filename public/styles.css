@@ -1,6 +1,8 @@
 body {
     font-family: Arial;
-    background-color: #1c1c1e;
+    background-image: url('../assets/background-site.png');
+    background-position: center;
+    height: 100%;
     margin: 0;
     padding: 0;
     color: white;

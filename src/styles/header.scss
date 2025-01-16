@@ -44,16 +44,11 @@
 
     &__menu__toggle {
         display: none;
+        color: #6f42c1;
         background: none;
         border: none;
-        font-size: 1.5rem;
-        color: white;
+        font-size: 2rem;
         cursor: pointer;
-
-        &[data-state="open"] {
-            content: "X";
-            font-size: 1.5rem;
-        }
     }
 
     &__container__father {
