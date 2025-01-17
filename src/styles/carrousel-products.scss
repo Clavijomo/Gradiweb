@@ -2,6 +2,32 @@
     width: 95%;
     margin: auto;
 
+    &__section-button-view-all {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__view-all-button {
+        border: none;
+        font-size: 20px;
+        width: max-content;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #6f42c1;
+        color: white;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 900;
+    }
+
+    &__view-all-button:hover {
+        background-color: #6832cd;
+        transition: all .2s ease-in-out;
+    }
+
     &__products-list {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -12,28 +38,49 @@
     .product-card {
         overflow: hidden;
         position: relative;
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+
+        &.hidden {
+            display: none;
+        }
+
+        &.fade-in {
+            display: block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         &__container-image {
             border: 5px solid #6f42c1;
             overflow: hidden;
             border-radius: 5px;
             height: 400px;
-        }
 
-        &__container-image:hover {
-            border: 5px solid #9f80d8;
+            &:hover {
+                border-color: #9f80d8;
+            }
         }
 
         &__image-product {
             height: 100%;
-            transition: transform 0.4s ease;
             width: 100%;
             object-fit: cover;
             border-radius: 3px;
-        }
+            transition: transform 0.4s ease;
 
-        &__image-product:hover {
-            transform: scale(1.1);
+            &:hover {
+                transform: scale(1.1);
+            }
         }
 
         &__title-product {
@@ -59,47 +106,28 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.2s ease-in;
-        }
 
-        &__text-price {
-            font-size: 18px;
-        }
-
-        &__list-tags li {
-            padding: 0;
-            color: #ababab;
-            list-style: none;
-            text-transform: capitalize;
+            &:hover {
+                background-color: #6832cd;
+            }
         }
 
         &__list-tags {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
             gap: 5px;
             padding: 0;
-        }
 
-        &__image-cart-icon {
-            width: 25px;
-        }
-
-        &__button:hover {
-            background-color: #6832cd;
-            transition: all .2s ease-in;
-        }
-    }
-
-    .product-card:hover {
-        cursor: pointer;
-
-        .image-hover {
-            transform: scale(1.1);
+            li {
+                color: #ababab;
+                list-style: none;
+                text-transform: capitalize;
+            }
         }
     }
 }
 
-@media(max-width: 780px) {
+@media (max-width: 768px) {
     .featured-products {
         &__products-list {
             display: flex;
@@ -107,7 +135,7 @@
             gap: 10px;
             width: 100%;
             scroll-snap-type: x mandatory;
-            --webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: touch;
 
             &::-webkit-scrollbar {
                 display: none;
@@ -115,8 +143,29 @@
         }
 
         .product-card {
-            width: 75%;
-            flex: 0 0 auto;
+            flex: 0 0 75%;
+            width: 100%;
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+
+            &.hidden {
+                display: none;
+            }
+
+            &.fade-in {
+                display: block;
+                opacity: 0;
+                transform: translateX(20px);
+                animation: fadeInMobile 0.5s ease forwards;
+            }
+
+            @keyframes fadeInMobile {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
 
             &__button {
                 display: none;
@@ -124,14 +173,6 @@
 
             &__list-tags {
                 display: none;
-            }
-        }
-
-        .product-card:hover {
-            border: none;
-
-            .image-hover {
-                transform: none;
             }
         }
     }

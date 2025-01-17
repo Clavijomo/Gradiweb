@@ -1,8 +1,12 @@
 <section class="featured-products">
-  {% comment %} <h2>{{ settings['featured-products'].settings.heading }}</h2> {% endcomment %}
-  <div class="featured-products__products-list">
+  <div id="products-list" class="featured-products__products-list">
     {% for product in products %}
-      {% render 'product-card', product: product %}
+      <div class="product-card{% if forloop.index > 4 %} hidden{% endif %}" data-id="{{ product.id }}">
+        {% render 'product-card', product: product %}
+      </div>
     {% endfor %}
+  </div>
+  <div class="featured-products__section-button-view-all">
+    <button id="view-all-button" class="featured-products__view-all-button">View All</button>
   </div>
 </section>
