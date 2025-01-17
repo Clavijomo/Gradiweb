@@ -116,7 +116,7 @@
             border: none;
             --tw-bg-opacity: 1;
             border-radius: 0.3rem;
-            padding: 10px;
+            padding: 8px 15px;
             background-color: rgb(118 44 251 / var(--tw-bg-opacity));
             display: block;
             position: relative;
@@ -221,13 +221,13 @@
             }
 
             &__cart {
-
                 &__desktop {
                     display: none;
                 }
 
                 &__mobile {
                     display: block;
+                    padding: 5px 8px;
                 }
             }
         }
