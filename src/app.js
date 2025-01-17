@@ -78,16 +78,26 @@ document.querySelectorAll('.header__nav__list__item__link').
         link.addEventListener('click', event => {
             event.preventDefault();
             const targetId = link.getAttribute('href').slice(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        })
+            smoothScrollTo(targetId);
+        });
     })
+
+document.querySelectorAll('.section-information__list-buttons-footer button').forEach((button) => {
+    button.addEventListener('click', () => {
+        const targetId = button.textContent.trim().replace(/\s+/g, '-').toLowerCase();
+        smoothScrollTo(targetId);
+    });
+});
+
+function smoothScrollTo(targetId) {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        window.scrollTo({
+            top: targetElement.offsetTop - 120,
+            behavior: 'smooth'
+        });
+    }
+}
 
 function generateHeroMarquee(container, message, repeatCount, iconPath) {
     if (!container) return;
