@@ -84,3 +84,45 @@
         margin: 0;
     }
 }
+
+@media(max-width: 780px) {
+    .section-latest-collection {
+        width: 95%;
+        margin: auto;
+
+        &__glow-content {
+            top: 183px;
+        }
+
+        &__section-title {
+            display: flex;
+            width: 95%;
+            margin: auto;
+            gap: 10px;
+        }
+
+        &__section-title h1 {
+            font-size: 40px;
+            text-align: center;
+            letter-spacing: -2px;
+            line-height: 58px;
+        }
+
+        &__section-title img {
+            width: 50px;
+            height: 50px;
+        }
+
+        &__grid-collections {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .card-collection {
+        &__section-title h1 {
+            padding: 30px 23px;
+            font-size: 25px;
+        }
+    }
+}
