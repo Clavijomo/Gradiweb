@@ -2,6 +2,7 @@
     width: 95%;
     margin: auto;
 
+
     &__section-button-view-all {
         padding: 10px;
         display: flex;
@@ -175,5 +176,12 @@
                 display: none;
             }
         }
+    }
+}
+
+@media(min-width: 1500px) {
+    .featured-products {
+        width: 70%;
+        margin: auto;
     }
 }

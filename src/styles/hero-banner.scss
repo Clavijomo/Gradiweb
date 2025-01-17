@@ -78,7 +78,7 @@
         align-items: center;
         white-space: nowrap;
         gap: 20px;
-        animation: marquee 800s linear infinite;
+        animation: marquee 1000s linear infinite;
     }
 
     span {
@@ -104,6 +104,15 @@
 
         &__button {
             display: none;
+        }
+    }
+}
+
+@media(min-width: 1500px) {
+    .hero-banner {
+        &__container {
+            width: 70%;
+            margin: auto;
         }
     }
 }

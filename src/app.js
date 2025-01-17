@@ -5,6 +5,7 @@ import './styles/footer.scss';
 import './styles/latest-collection.scss';
 
 import products from '../data/products.json';
+import { sections } from '../config/settings_data.json';
 
 const topBarContent = document.querySelector('.top-bar__content');
 const heroBanner = document.querySelector('.hero-banner__marquee');
@@ -12,7 +13,7 @@ const toggleButton = document.querySelector('.header__menu__toggle');
 const navMenu = document.querySelector('.header__nav');
 const message = 'FREE SHIPPING FOR ORDERS OVER $100';
 const header = document.querySelector('.header');
-const messageMarquee = 'SHUFFLE ESSENTIALS';
+const messageMarquee = sections.heroBanner.settings.marquee_text;
 const heroIconPath = './assets/star.svg'
 const viewAllButton = document.querySelector('#view-all-button');
 const repeatCount = 100;
@@ -35,6 +36,11 @@ async function renderAdditionalProducts() {
         additionalProducts.forEach((product) => {
             const productCard = document.createElement('div');
             productCard.classList.add('product-card', 'hidden');
+            const tagsHTML = product.tags
+                ? `<ul class="product-card__list-tags">
+                    ${product.tags.map(tag => `<li>${tag} | </li>`).join('')}
+                   </ul>`
+                : '';
 
             productCard.innerHTML = `
                 <div class="product-card__container-image">
@@ -50,6 +56,7 @@ async function renderAdditionalProducts() {
                     <div class="product-card__container-actions-product__container-description">
                         <h3 class="product-card__title-product">${product.title}</h3>
                         <p class="product-card__text-price">$${product.price.toFixed(2)}</p>
+                        ${tagsHTML}
                     </div>
                     <button class="product-card__button">
                         <img src="./assets/shop.svg" alt="Cart icon" width="20" />

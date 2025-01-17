@@ -3,7 +3,7 @@
     <div class="section-information__section-left">
       <div class="section-information__section-icon-text">
         <img src="../assets/icon-footer.png" width="80" height="100%" alt="icon-footer">
-        <h1>Store</h1>
+        <h1>{{ settings.footer.settings.logo_text }}</h1>
       </div>
       <div class="section-information__container-copyright">
         <p>© 2024, Shuffle.store Operated by</p>
@@ -13,15 +13,15 @@
     </div>
     <div class="section-information__section-center">
       <div class="section-information__list-buttons-footer">
-        <button>Home</button>
-        <button>Cart</button>
-        <button>All Products</button>
-        <button>Collections</button>
+        <button>HOME</button>
+        <button>CART</button>
+        <button>ALL PRODUCTS</button>
+        <button>COLLECTIONS</button>
       </div>
       <div class="section-information__section-terms-services">
-        <p>REFUND POLICY</p>
-        <p>PRIVACY POLICY</p>
-        <p>TERMS OF SERVICE</p>
+        <p>{{ settings.footer.settings.links[4].label }}</p>
+        <p>{{ settings.footer.settings.links[5].label }}</p>
+        <p>{{ settings.footer.settings.links[6].label }}</p>
       </div>
       <div class="section-information__section-major-cards">
         <p>We accept all major cards, PayPal & crypto</p>
@@ -63,7 +63,7 @@
     <div class="section-information__section-icon-text-mobile">
       <div class="section-information__section-icon-store">
         <img src="../assets/icon-footer.png" width="80" height="100%" alt="icon-footer">
-        <h1>Store</h1>
+        <h1>{{ settings.footer.settings.logo_text }}</h1>
       </div>
       <div class="section-information__section-social-media-mobile">
         <p>FACEBOOK</p>

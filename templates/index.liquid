@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/styles.css">
     <title>Shopify Simulator | Gradiweb</title>
   </head>
-  <body>
+  <body class="container">
     {% include 'header.liquid' %}
     <section>
       {% include 'hero-banner.liquid' %}
@@ -17,9 +17,7 @@
     <section id="collections">
       {% include 'latest-collection.liquid' %}
     </section>
-    <footer>
-      {% include 'footer.liquid' %}
-    </footer>
+    {% include 'footer.liquid' %}
     <script src="/main.js"></script>
   </body>
 </html>
