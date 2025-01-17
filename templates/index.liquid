@@ -7,11 +7,21 @@
     <title>Shopify Simulator | Gradiweb</title>
   </head>
   <body>
-    {% include 'header.liquid' %}
-    {% include 'hero-banner.liquid' %}
-    {% include 'featured-products.liquid' %}
-    {% include 'latest-collection.liquid' %}
-    {% include 'footer.liquid' %}
+    <header>
+      {% include 'header.liquid' %}
+    </header>
+    <section>
+      {% include 'hero-banner.liquid' %}
+    </section>
+    <section id="all-products">
+      {% include 'featured-products.liquid' %}
+    </section>
+    <section id="collections">
+      {% include 'latest-collection.liquid' %}
+    </section>
+    <footer>
+      {% include 'footer.liquid' %}
+    </footer>
     <script src="/main.js"></script>
   </body>
 </html>

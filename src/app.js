@@ -15,6 +15,22 @@ const heroIconPath = './assets/star.svg'
 
 const repeatCount = 100;
 
+document.querySelectorAll('.header__nav__list__item__link').
+    forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            const targetId = link.getAttribute('href').slice(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        })
+    })
+
 function generateHeroMarquee(container, message, repeatCount, iconPath) {
     if (!container) return;
 
