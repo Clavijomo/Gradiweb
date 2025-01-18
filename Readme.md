@@ -1,4 +1,4 @@
-# Marco de Simulador de Shopify
+# Prueba Técnica Gradiweb - Simulador de Shopify - Liquid y WebPack
 
 ## Descripción General
 
