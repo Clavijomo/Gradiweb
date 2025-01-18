@@ -16,8 +16,11 @@
   "author": "miguelgradi",
   "license": "ISC",
   "dependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
     "express": "^4.21.2",
-    "liquidjs": "^10.20.1"
+    "liquidjs": "^10.20.1",
+    "mini-css-extract-plugin": "^2.9.2"
   },
   "devDependencies": {
     "css-loader": "^6.7.3",
