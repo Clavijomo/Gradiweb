@@ -1,145 +1,138 @@
-# Shopify Simulator Documentation
+# Marco de Simulador de Shopify
 
-Welcome to **Shopify Simulator**, a lightweight environment designed to help developers explore Shopify's Liquid templating language and dynamic section-based architecture. This project simulates Shopify's core functionalities, enabling developers to practice creating reusable components, iterating through data, and working with dynamic settings.
+## Descripción General
 
----
+El **Marco de Simulador de Shopify** es un proyecto ligero de simulación diseñado para replicar funcionalidades clave de una plataforma de comercio electrónico, utilizando componentes similares a los de Shopify. El proyecto enfatiza el desarrollo modular con plantillas Liquid, estilos en SASS y funcionalidades interactivas con JavaScript, utilizando Webpack para la agrupación de archivos.
 
-## **Project Structure**
-
-```
-/simulator
-├── /config
-│   ├── settings_schema.json      # Defines configurable settings for sections
-│   ├── settings_data.json        # Stores dynamic data for rendering sections
-├── /data
-│   ├── products.json             # Sample product data
-│   ├── collections.json          # Sample collection data
-├── /public
-│   ├── styles.css                # Compiled CSS file
-│   ├── main.js                   # Compiled JavaScript file
-├── /sections
-│   ├── featured-products.liquid  # Main section rendering product lists
-├── /snippets
-│   ├── product-card.liquid       # Reusable snippet for individual product cards
-├── /templates
-│   ├── index.liquid              # Main template file
-├── /src
-│   ├── styles.scss               # Base SASS file
-│   ├── app.js                    # Base JavaScript logic
-├── /assets                       # Images for products, banners, and collections
-├── package.json
-├── webpack.config.js
-├── server.js
-```
+Este proyecto sirve como un desafío técnico para demostrar las mejores prácticas, código limpio y habilidades de documentación.
 
 ---
 
-## **Liquid Basics**
+## Características
 
-Liquid is a templating language used in Shopify to dynamically render content. Below are the key concepts you'll use in this simulator:
-
-### **Sections**
-
-Sections are modular components that render specific parts of a page. For example, the `featured-products.liquid` file is a section that displays a list of products. Sections can:
-
-- Access dynamic data from `settings_data.json`.
-- Be configured through a schema defined in `settings_schema.json`.
-
-Example:
-
-```liquid
-<section class="featured-products">
-  <h2>{{ settings['featured-products'].settings.heading }}</h2>
-</section>
-```
-
-### **Snippets**
-
-Snippets are reusable components, such as a product card. You can include a snippet using the `{% render %}` tag:
-
-Example:
-
-```liquid
-<div class="product-list">
-  {% for product in products %}
-    {% render 'product-card', product: product %}
-  {% endfor %}
-</div>
-```
-
-### **Iterating Over Objects**
-
-Liquid allows you to iterate over arrays, such as products or collections:
-
-```liquid
-<ul>
-  {% for product in products %}
-    <li>{{ product.title }} - ${{ product.price }}</li>
-  {% endfor %}
-</ul>
-```
-
-### **Filters**
-
-Filters are used to manipulate output. Some common filters:
-
-- `capitalize`: Capitalizes the first letter.
-- `date`: Formats a date.
-- `money`: Formats a number as currency.
-
-Example:
-
-```liquid
-{{ product.price | money }}
-{{ product.created_at | date: "%B %d, %Y" }}
-```
+- **Componentes Dinámicos**: Plantillas reutilizables en Liquid para una interfaz de usuario modular.
+- **Interacciones de Usuario Suaves**:
+  - Animaciones de desplazamiento.
+  - Renderización dinámica de productos (funcionalidad "Ver Todos").
+- **Estilos Basados en SCSS**: Arquitectura CSS escalable y mantenible.
+- **Manejo Asíncrono de Datos**: Obtención del resto de productos utilizando una "API" simulada.
+- **Configuración con Webpack**:
+  - Agrupa SCSS y JS.
+  - Build optimizado para desarrollo.
+- **Diseño Responsivo**: Garantiza una experiencia fluida en todos los dispositivos.
 
 ---
 
-## **Dynamic Configuration**
-
-### **Schema (`settings_schema.json`)**
-
-The schema defines the settings available for a section. While it's necessary in Shopify, it might not be required here.
-
-### **Data (`settings_data.json`)**
-
-This file contains the dynamic values for settings
-
-## **Setup Instructions**
-
-### **Install Dependencies**
-
-```bash
-npm install
+## Estructura del Proyecto
 ```
-
-### **Run the Server**
-
-```bash
-npm start
+├── assets/              # Recursos estáticos (imágenes, íconos)
+├── config/              # Archivos de configuración JSON
+├── data/                # Archivos de datos (por ejemplo, products.json)
+├── public/              # Salida de Webpack (main.js)
+├── src/                 # Archivos fuente para JavaScript y SCSS
+    ├── sections/            # Secciones relevantes del sitio
+    ├── components/            # Componentes reutilizables en Liquid
+    ├── js/              # Módulos y funcionalidades del JavaScript
+    ├── styles/          # Archivos SCSS separados por secciones
+├── templates/           # Plantilla HTML principal
+├── webpack.config.js    # Configuración de Webpack
+└── server.js            # Configuración del servidor local
 ```
+---
 
-### **Build Styles and Scripts**
+## Instrucciones de Instalación
 
-```bash
-npm run build
-```
+### Requisitos Previos
+
+- Node.js (>= 14.x)
+- NPM o Yarn
+
+### Instalación
+
+1. Clona el repositorio:
+   ```bash
+   git clone git@github.com:Clavijomo/Gradiweb.git
+   ```
+
+2. Instala las dependencias:
+
+   ```bash
+   npm install
+   ```
+
+3. Inicia el servidor de desarrollo:
+
+   ```bash
+   npm run dev
+   ```
+
+   La aplicación estará disponible en `http://localhost:3000`.
+
+4. Genera la versión de producción:
+
+   ```bash
+   npm run build
+   ```
+
+   La salida se encontrará en el directorio `public/`.
+---
+
+## Funcionalidades Clave
+
+### 1. Productos dinámicos "View Al" - products.js
+- **Descripción**: Muestra inicialmente 4 productos destacados. Al hacer clic en el botón "View All", carga dinámicamente los productos restantes con una animación suave de aparición.
+- **Funciones**: `fetchAdditionalProducts()` y `fetchAdditionalProducts()`.
+
+### 2. Scroll Down/Up - smoothScroll.js
+- **Descripción**: Desplaza suavemente a las secciones cuando se hace clic en enlaces de navegación o botones.
+- **Funciones**: `smoothScrollTo()` y `attachSmoothScrollToLinks()`.
+
+### 4. Toggle Menu - toogleMenu.js
+- **Descripción**: Despliega/contrae el menú tipo hamburguesa (☰) para listar las opciones del mismo.
+  - **Funciones**: `attachToggleMenu`.
+
+### Plantillas Modulares en Liquid
+- **Descripción**: Componentes de interfaz reutilizables (por ejemplo, `header.liquid`, `hero-banner.liquid`).
+- **Ubicación**:
+  - `src/sections/header.liquid`
+  - `src/sections/featured-products.liquid`
+
+### Arquitectura de SCSS
+
+- **Descripción**: Estilizado utilizando la metodología BEM para consistencia y modularidad y separado por secciones.
+- **Archivos**:
+  - `src/styles/header.scss`
+  - `src/styles/carrousel-products.scss`
+  - `src/styles/footer.scss`
+  - `src/styles/hero-banner.scss`
+  - `src/styles/latest-collection.scss`
 
 ---
 
-## **Additional Notes**
+## Configuración de Webpack
 
-### **Assets**
+### Configuración Actual
 
-All product, banner, and collection images are stored in the `/assets` folder. Refer to the `data/products.json` and `data/collections.json` files for mappings.
+- **Punto de Entrada**: `src/js/app.js`
+- **Directorio de Salida**: `public/`
+- **Loaders**:
+  - `style-loader`, `css-loader`, `sass-loader` para SCSS.
 
-### **Testing the Application**
+## Mejores Prácticas
 
-Visit `http://localhost:3000` in your browser to view the simulator in action.
+1. **Código Modular**:
+   - Separación de la lógica de JavaScript en módulos individuales basados en responsabilidades.
+   - Uso de BEM en SCSS para facilidad de mantenimiento.
 
+2. **Documentación**:
+   - Documentación detallada de funciones y configuraciones.
+
+3. **Responsividad**:
+   - Diseños de interfaces adaptables (Responsive Design) para una experiencia fluida en cualquier dispositivo.
+
+4. **Manejo de Errores**:
+   - Manejo adecuado de valores nulos/indefinidos en funciones de JavaScript.
 ---
 
-Feel free to customize the simulator further to match your requirements. Happy coding! 🚀
-
-For more information about Liquid, refer to the [official Liquid documentation](https://liquidjs.com/tutorials/intro-to-liquid.html).
+## Créditos
+Proyecto realizado por Jonathan Ferney Clavijo Morales con fines de resolución de prueba técnica Frontend Developer - Gradiweb.

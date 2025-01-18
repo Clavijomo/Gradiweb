@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "webpack --watch",
+    "dev": "node server.js",
     "build": "webpack"
   },
   "keywords": [
