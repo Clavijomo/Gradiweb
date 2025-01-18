@@ -9,7 +9,7 @@ const engine = new Liquid({
     root: [
         path.resolve(__dirname, 'templates'),
         path.resolve(__dirname, 'sections'),
-        path.resolve(__dirname, 'snippets')
+        path.resolve(__dirname, 'components')
     ],
     extname: '.liquid',
 });
@@ -24,7 +24,6 @@ app.use('/assets', express.static('assets'));
 const products = require('./data/products.json');
 const collections = require('./data/collections.json');
 const settings = JSON.parse(fs.readFileSync('./config/settings_data.json', 'utf-8'));
-console.log(settings.sections.heroBanner.settings.background_image);
 
 
 app.get('/', (req, res) => {

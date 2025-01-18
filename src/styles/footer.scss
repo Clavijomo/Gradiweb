@@ -11,6 +11,11 @@ footer {
         justify-content: space-between;
         align-items: center;
 
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
         &__section-left {
             display: flex;
             flex-direction: column;
@@ -196,6 +201,7 @@ footer {
             &__section-icon-store h1 {
                 border-left: 2px solid #865fce;
                 padding-left: 15px;
+                font-size: 28px;
             }
 
             &__section-social-media {
